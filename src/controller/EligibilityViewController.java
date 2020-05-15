@@ -21,7 +21,6 @@ public class EligibilityViewController extends HttpServlet {
        
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/index.jsp");
@@ -45,7 +44,8 @@ public class EligibilityViewController extends HttpServlet {
 		user.setAge(age);
 		user.setHeight(height);
 		user.setWeight(weight);
-		
+		EligibiltyCheck eligible = new EligibiltyCheck();
+		boolean spaceEligible = eligible.basicEligibilityCheck(user);
 		System.out.println(spaceEligible);
 			if(spaceEligible)
 			{
@@ -60,4 +60,3 @@ public class EligibilityViewController extends HttpServlet {
 			}
 }
 }
-

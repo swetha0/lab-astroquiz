@@ -18,6 +18,8 @@ public class Eligibility extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	String points=request.getParameter("points");
+	EligibiltyCheck elig = new EligibiltyCheck();
+	boolean spaceEligible = elig.checkQuizAnswer(points);
 	
 	if(false)
 	{
@@ -30,6 +32,5 @@ public class Eligibility extends HttpServlet {
 		rd.forward(request, response);
 		
 	}
-
 }
 }
